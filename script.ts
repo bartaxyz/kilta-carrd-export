@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import * as path from "path";
 import { JSDOM } from "jsdom";
 
@@ -88,8 +88,11 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 
   /* Create HTML */
 
-  if (!existsSync(path.join(GITHUB_WORKSPACE, "profiles"))) {
-    mkdirSync(path.join(GITHUB_WORKSPACE, "profiles"));
+  if (!existsSync(path.join(GITHUB_WORKSPACE, "public"))) {
+    mkdirSync(path.join(GITHUB_WORKSPACE, "public"));
+  }
+  if (!existsSync(path.join(GITHUB_WORKSPACE, "public", "profiles"))) {
+    mkdirSync(path.join(GITHUB_WORKSPACE, "public", "profiles"));
   }
 
   profiles.forEach((profile) => {
@@ -156,7 +159,12 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
   `;
 
     writeFileSync(
-      path.join(GITHUB_WORKSPACE, "profiles", profile.profileLink + ".html"),
+      path.join(
+        GITHUB_WORKSPACE,
+        "public",
+        "profiles",
+        profile.profileLink + ".html"
+      ),
       html,
       {
         encoding: "utf-8",
@@ -196,7 +204,7 @@ ${profiles
 
 `;
 
-  writeFileSync(path.join(GITHUB_WORKSPACE, "index.html"), html, {
+  writeFileSync(path.join(GITHUB_WORKSPACE, "public", "index.html"), html, {
     encoding: "utf-8",
   });
 
