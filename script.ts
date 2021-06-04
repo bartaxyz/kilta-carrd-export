@@ -4,8 +4,6 @@ import { JSDOM } from "jsdom";
 import fetch from "node-fetch";
 
 (async () => {
-  // const file = readFileSync("./profiles.html", { encoding: "utf-8" });
-
   const file = await (await fetch("https://kiltakilta.carrd.co/")).text();
 
   const dom = new JSDOM(file);
