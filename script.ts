@@ -33,7 +33,6 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 
   profileNodes.forEach((profileNode) => {
     const profileDiv = profileNode.children[1].children[0].children[0];
-    const experienceDiv = profileNode.children[3];
 
     const name =
       profileDiv.children[1].children[0].querySelector(
@@ -170,10 +169,6 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
         encoding: "utf-8",
       }
     );
-
-    /* writeFileSync(`./profiles/${profile.profileLink}.html`, html, {
-      encoding: "utf-8",
-    }); */
   });
 
   const html = `
@@ -207,6 +202,4 @@ ${profiles
   writeFileSync(path.join(GITHUB_WORKSPACE, "public", "index.html"), html, {
     encoding: "utf-8",
   });
-
-  /* writeFileSync("./index.html", html, { encoding: "utf-8" }); */
 })();
