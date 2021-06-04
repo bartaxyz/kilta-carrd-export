@@ -110,7 +110,7 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
   <body>
   <div class="container">
 
-  <h1><p><a href="/">Kilta People</a></p></h1>
+  <h1><p><a href="https://bartaxyz.github.io/kilta-carrd-export/">Kilta People</a></p></h1>
 
 
 
@@ -190,7 +190,7 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 <body>
 <div class="container">
 
-<h1><p><a href="/">Kilta People</a></p></h1>
+<h1><p><a href="https://bartaxyz.github.io/kilta-carrd-export/">Kilta People</a></p></h1>
 
 ${profiles
   .map((profile) => {
