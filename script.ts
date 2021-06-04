@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { JSDOM } from "jsdom";
 
 import fetch from "node-fetch";
@@ -84,6 +84,10 @@ import fetch from "node-fetch";
   console.log(profiles);
 
   /* Create HTML */
+
+  if (!existsSync("./profiles")) {
+    mkdirSync("./profiles");
+  }
 
   profiles.forEach((profile) => {
     const html = `
