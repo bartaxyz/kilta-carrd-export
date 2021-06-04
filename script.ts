@@ -84,7 +84,7 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
     });
   });
 
-  console.log(profiles);
+  console.log(`Successfully fetched and parsed ${profiles.length} profile/s`);
 
   /* Create HTML */
 
