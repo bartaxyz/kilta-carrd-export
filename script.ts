@@ -1,7 +1,10 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import * as path from "path";
 import { JSDOM } from "jsdom";
 
 import fetch from "node-fetch";
+
+const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 
 (async () => {
   const file = await (await fetch("https://kiltakilta.carrd.co/")).text();
@@ -85,8 +88,8 @@ import fetch from "node-fetch";
 
   /* Create HTML */
 
-  if (!existsSync("./profiles")) {
-    mkdirSync("./profiles");
+  if (!existsSync(path.join(GITHUB_WORKSPACE, "profiles"))) {
+    mkdirSync(path.join(GITHUB_WORKSPACE, "profiles"));
   }
 
   profiles.forEach((profile) => {
@@ -152,9 +155,17 @@ import fetch from "node-fetch";
 
   `;
 
-    writeFileSync(`./profiles/${profile.profileLink}.html`, html, {
+    writeFileSync(
+      path.join(GITHUB_WORKSPACE, "profiles", profile.profileLink + ".html"),
+      html,
+      {
+        encoding: "utf-8",
+      }
+    );
+
+    /* writeFileSync(`./profiles/${profile.profileLink}.html`, html, {
       encoding: "utf-8",
-    });
+    }); */
   });
 
   const html = `
@@ -185,5 +196,9 @@ ${profiles
 
 `;
 
-  writeFileSync("./index.html", html, { encoding: "utf-8" });
+  writeFileSync(path.join(GITHUB_WORKSPACE, "index.html"), html, {
+    encoding: "utf-8",
+  });
+
+  /* writeFileSync("./index.html", html, { encoding: "utf-8" }); */
 })();
