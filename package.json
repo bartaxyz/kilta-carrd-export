@@ -1,0 +1,21 @@
+{
+  "name": "carrd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc ./script.ts && node ./script.js",
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jsdom": "^16.2.10",
+    "@types/node": "^15.12.1",
+    "@types/node-fetch": "^2.5.10",
+    "jsdom": "^16.6.0",
+    "node-fetch": "^2.6.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}
