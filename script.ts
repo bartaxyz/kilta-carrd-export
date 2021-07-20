@@ -7,7 +7,7 @@ import fetch from "node-fetch";
 const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 
 (async () => {
-  const file = await (await fetch("https://kiltakilta.carrd.co/")).text();
+  const file = await (await fetch("https://kilta.com/")).text();
 
   const dom = new JSDOM(file);
 
@@ -54,7 +54,7 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 
     const description = profileDiv.children[1].children[1].innerHTML;
 
-    const expertise = profileDiv.children[1].children[2].textContent
+    const expertise = profileDiv.children[1].children[2]?.textContent
       .split("•")
       .map((str) => str.trim());
 
@@ -134,7 +134,7 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
 
           <div>
             <p>
-              ${profile.expertise.join(" &middot; ")}
+              ${profile.expertise?.join(" &middot; ")}
             </p>
           </div>
 
