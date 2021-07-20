@@ -117,7 +117,7 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE || ".";
       <div class="row">
         <div class="column column-33">
           <img
-            src="https://kiltakilta.carrd.co/${profile.picture}"
+            src="https://kilta.com/${profile.picture}"
             style="border-radius:50%;"
           />
         </div>
